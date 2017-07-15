@@ -1,6 +1,7 @@
 import requests
+import config
 
-base_url = "http://catalog.data.gov/api/3/"
+base_url = config.BASE_URL
 
 def get_version():
     url = base_url
@@ -9,5 +10,4 @@ def get_version():
 def search_package(text):
     # Maybe check whether text is a string?
     url = '{0}action/package_search?q={1}'.format(base_url, str(text))
-    print('url is {}'.format(url))
     return requests.get(url)
